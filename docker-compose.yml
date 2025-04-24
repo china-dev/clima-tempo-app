@@ -1,0 +1,15 @@
+services:
+  app:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Backend:/var/www/Backend
+      - /var/www/Backend/vendor
+      - ./.env:/var/www/Backend/.env
+    stdin_open: true
+    tty: true

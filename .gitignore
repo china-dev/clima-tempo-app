@@ -1,0 +1,13 @@
+# Node
+frontend/node_modules
+frontend/dist
+
+# PHP / Composer
+backend/vendor
+
+# IDEs
+.vscode
+.idea
+
+# Env
+**/.env
