@@ -8,7 +8,7 @@ use Dotenv\Dotenv;
 
 $app = AppFactory::create();
 
-$dotenv = Dotenv::createImmutable('/var/www/Backend');
+$dotenv = Dotenv::createImmutable('/var/www/');
 $dotenv->load();
 
 $weatherApiKey = getenv('WEATHER_API_KEY');

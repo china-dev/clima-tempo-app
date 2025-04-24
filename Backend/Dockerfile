@@ -7,13 +7,14 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/Backend
+WORKDIR /var/www
 
-COPY Backend/composer.json ./composer.json
+COPY composer.json ./
 
 RUN composer install
 
-COPY Backend/App ./App
+COPY ./App ./App
 
+EXPOSE 8080
 
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "App/Public", "App/Public/index.php"]
