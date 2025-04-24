@@ -1,8 +1,9 @@
 services:
-  app:
+  backend:
     build:
       context: ./Backend
       dockerfile: Dockerfile
+    container_name: clima-tempo-backend
     ports:
       - "8080:8080"
     volumes:
@@ -11,3 +12,22 @@ services:
       - ./Backend/.env
     stdin_open: true
     tty: true
+    networks:
+      - clima-tempo-network
+
+  frontend:
+    build: ./Frontend
+    container_name: clima-tempo-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    networks:
+      - clima-tempo-network
+    environment:
+      - NODE_ENV=development
+
+networks:
+  clima-tempo-network:
+    driver: bridge
