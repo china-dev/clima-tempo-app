@@ -1,18 +1,18 @@
-
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+  import ConditionCity from './components/ConditionCity.vue';
+  import { onMounted } from "vue";
+  import { useApi } from "./composables/useApi.ts";
+
+  const { fetchRequest, data, teste } = useApi();
+  
+  onMounted( async() => {
+    await fetchRequest('?city=São Paulo');
+  });
+  
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <ConditionCity v-if="data"/>
 </template>
 
 <style scoped src="./styles/App.css">

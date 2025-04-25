@@ -99,3 +99,9 @@ input[type='number'] {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+body{
+  padding: 50px 20px;
+}
+h1, h2, h3, p, span {
+  line-height: 1;
+}
