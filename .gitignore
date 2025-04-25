@@ -1,6 +1,7 @@
 # Node
-frontend/node_modules
-frontend/dist
+Frontend/node_modules
+Frontend/dist
+Frontend/package-lock.json
 
 # PHP / Composer
 backend/vendor

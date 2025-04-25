@@ -18,7 +18,9 @@ services:
       - clima-tempo-network
 
   frontend:
-    build: ./Frontend
+    build: 
+      context: ./Frontend
+      dockerfile: Dockerfile
     container_name: clima-tempo-frontend
     ports:
       - "5173:5173"
