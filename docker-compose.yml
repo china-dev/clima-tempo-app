@@ -7,7 +7,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
+      - ./Backend:/var/www
       - ./Backend/.env:/var/www/.env
+      - /var/www/vendor
     env_file:
       - ./Backend/.env
     stdin_open: true
