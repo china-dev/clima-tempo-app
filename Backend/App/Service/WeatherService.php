@@ -18,7 +18,7 @@ class WeatherService
 
     public function getWeather(string $city): Weather {
         try {
-            $response = $this->client->get("current.json?key={$this->apiKey}&q={$city}");
+            $response = $this->client->get("current.json?key={$this->apiKey}&q={$city}&lang=pt");
             $data = json_decode($response->getBody()->getContents(), true);
             
             return new Weather(

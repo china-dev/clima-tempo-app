@@ -29,9 +29,14 @@ services:
       - /app/node_modules
     networks:
       - clima-tempo-network
+    command: npm run dev -- --host
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
 
 networks:
   clima-tempo-network:
     driver: bridge
+
+# volumes:
+#   clima-tempo-node-modules:
