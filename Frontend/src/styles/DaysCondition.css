@@ -1,0 +1,34 @@
+.boxWrapper.daysCondition {
+  max-width: 350px;
+}
+.boxWrapper.daysCondition .box{
+  flex-direction: column;
+  height: unset;
+}
+.boxDays {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.dayTempMin,
+.dayTempMax {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+}
+.dayTempMin::after,
+.dayTempMax::after {
+  content: '°C';
+  font-size: 11px;
+  margin-left: 2px;
+}
+.dayTempMin,
+.dayTitle {
+  color: gray;
+}
+.dayTempMin {
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 3px;
+}

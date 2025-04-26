@@ -13,6 +13,7 @@ export interface WeatherData {
     temp_f: number;
     feelslike_f: number;
     humidity: number;
+    forecast: Array
   }
 
 const BASE_URL = 'http://localhost:8080/weather';
