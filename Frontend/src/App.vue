@@ -3,6 +3,8 @@
   import HumidityCity from './components/HumidityCity.vue';
   import InfoCity from './components/InfoCity.vue';
   import MessageClimate from './components/MessageClimate.vue';
+  import Searchcity from "./components/SearchCity.vue";
+
   import { onMounted } from "vue";
   import { useApi } from "./composables/UseApi";
 
@@ -11,10 +13,15 @@
   onMounted(() => {
     fetchRequest('?city=São Paulo');
   });
+
+  function handleCitySearch(cityName: string) {
+    fetchRequest(`?city=${cityName}`);
+  }
   
 </script>
 
 <template>
+  <Searchcity @search="handleCitySearch" />
   <InfoCity v-if="data" :weather="data" />
   <MessageClimate v-if="data" :weather="data" />
   <ConditionCity v-if="data" :weather="data" />

@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { WeatherData } from "../composables/UseApi";
-  import { useFormatDate } from "../composables/InfoCity"
+  import { useFormatDate } from "../composables/InfoCity";
 
 const { weather } = defineProps<{
    weather: WeatherData;

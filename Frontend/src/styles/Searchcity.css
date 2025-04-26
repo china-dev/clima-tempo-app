@@ -1,0 +1,27 @@
+.formWrapper {
+  border: 1px solid #0178ff;
+  border-radius: 20px;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding-left: 10px;
+}
+.searchInput {
+  width: calc(100% - 38px);
+  height: 40px;
+}
+.searchButton{
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background: linear-gradient(90deg, rgba(1, 120, 255, 1) 0%, rgba(28, 145, 255, 1) 50%, rgba(50, 164, 255, 1) 100%);
+}
+.searchButton img {
+  width: 20px;
+}
