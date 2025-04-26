@@ -14,6 +14,7 @@ class Weather
         public float $feelslike_c,
         public float $temp_f,
         public float $feelslike_f,
-        public float $humidity
+        public float $humidity,
+        public array $forecast
     ) {}
 }

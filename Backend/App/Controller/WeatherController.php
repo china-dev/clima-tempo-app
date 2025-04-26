@@ -20,7 +20,7 @@ class WeatherController {
 
         try {
             $weather = $this->service->getWeather($city);
-
+            // echo "<pre>"; print_r($weather); echo "</pre>"; exit;
             $response->getBody()->write(json_encode([
                 'city' => $weather->city,
                 'region' => $weather->region,
@@ -32,7 +32,8 @@ class WeatherController {
                 'feelslike_c' => $weather->feelslike_c,
                 'temp_f' => $weather->temp_f,
                 'feelslike_f' => $weather->feelslike_f,
-                'humidity' => $weather->humidity
+                'humidity' => $weather->humidity,
+                'forecast' => $weather->forecast,
             ]));
     
             return $response
