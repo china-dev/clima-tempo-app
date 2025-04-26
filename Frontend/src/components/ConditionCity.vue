@@ -1,7 +1,9 @@
 <script setup lang="ts">
-  import { useApi } from "../composables/useApi.ts";
+  import type { WeatherData } from "../composables/UseApi";
 
-  const { data } = useApi();
+  const { weather } = defineProps<{
+     weather: WeatherData;
+  }>();
   
 </script>
 
@@ -9,16 +11,15 @@
   <section class="boxWrapper">
     <div class="box">
       <div class="boxImg">
-        <img :src="data.icon" :alt="data.condition">
+        <img :src="weather.icon" :alt="weather.condition">
       </div>
       <div class="boxCondition">
         <h2 class="boxConditionCity">
-          {{ data.city }}
+          {{ weather.city }}
         </h2>
         <p class="boxConditionTempc">
-          {{  data.temp_c }} 
+          {{  weather.temp_c }} 
         </p>
-        <!-- {{ data  }} -->
       </div>
       <div class="boxDescriptions">
         <div class="boxDescriptionsWrapper">
@@ -26,15 +27,15 @@
             Condição
           </p>
           <p class="boxDescritionValue">
-            {{  data.condition }}
+            {{  weather.condition }}
           </p>
         </div>
         <div class="boxDescriptionsWrapper">
           <p class="boxDescritionTitle">
             Sensação térmica
           </p>
-          <p class="boxDescritionValue">
-            {{  data.feelslike_c }}
+          <p class="boxDescritionValue boxDescritionValueTempc">
+            {{  weather.feelslike_c }}
           </p>
         </div>
       </div>

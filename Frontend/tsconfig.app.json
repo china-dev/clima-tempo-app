@@ -14,7 +14,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "lib": ["ES2015", "DOM"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue",  "src/**/*.d.ts"]
 }

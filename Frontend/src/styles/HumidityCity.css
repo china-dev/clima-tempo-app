@@ -1,0 +1,45 @@
+.boxWrapper.humidity {
+  max-width: 300px;
+  margin-top: 50px;
+}
+.boxWrapperHumidity {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.boxHumidityHead {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.boxHumidityHeadImg {
+  max-width: 40px;
+  margin-right: 10px;
+}
+.boxHumidityHeadText {
+  color: gray;
+}
+.boxHumidityPercent {
+  font-size: 36px;
+}
+.boxGrafic {
+  border: 1px solid #077dff;
+  width: 30px;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+.boxGraficPercent{
+  width: 30px;
+  border-radius: 20px;
+  height: 94%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.boxGraficPercentIcon {
+  background-color: #077dff;
+  width: 24\px;
+  border-radius: 24px;
+  height: 24px;
+}
