@@ -1,0 +1,16 @@
+.infoCity{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.infoCityTitle{
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.infoCityRegion {
+    font-size: 22px;
+    color: gray;
+}
+.infoCityCalendarHour {
+    font-size: 22px;
+}
