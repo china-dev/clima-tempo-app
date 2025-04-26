@@ -1,12 +1,13 @@
 <script setup lang="ts">
   import { useMessageClimate } from "../composables/MessageClimate.ts";
   import type { WeatherData } from "../composables/UseApi";
+  import { toRef } from "vue";
 
-  const { weather } = defineProps<{
+  const props  = defineProps<{
     weather: WeatherData;
   }>();
 
-  const { message } = useMessageClimate(weather);
+  const { message } = useMessageClimate(toRef(props, 'weather'));
 </script>
 
 <template>

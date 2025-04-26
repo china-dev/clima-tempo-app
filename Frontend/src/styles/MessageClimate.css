@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
 }
 .boxWrapper.messageCard:hover {
     transform: translateY(-5px);

@@ -1,3 +1,8 @@
+.formSearchCity {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .formWrapper {
   border: 1px solid #0178ff;
   border-radius: 20px;

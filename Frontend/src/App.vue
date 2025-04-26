@@ -3,24 +3,27 @@
   import HumidityCity from './components/HumidityCity.vue';
   import InfoCity from './components/InfoCity.vue';
   import MessageClimate from './components/MessageClimate.vue';
+  import LoadingApp from './components/LoadingApp.vue';
   import Searchcity from "./components/SearchCity.vue";
 
   import { onMounted } from "vue";
-  import { useApi } from "./composables/UseApi";
+  import { useCitySearch } from "./composables/UseCitySearch.ts";
 
-  const { fetchRequest, data } = useApi();
-  
+  const { data, showLoading, initialLoad, searchCity } = useCitySearch();
+
   onMounted(() => {
-    fetchRequest('?city=São Paulo');
+    initialLoad();
   });
 
   function handleCitySearch(cityName: string) {
-    fetchRequest(`?city=${cityName}`);
+    searchCity(cityName);
   }
   
 </script>
 
 <template>
+  <LoadingApp v-if="showLoading"/>
+
   <Searchcity @search="handleCitySearch" />
   <InfoCity v-if="data" :weather="data" />
   <MessageClimate v-if="data" :weather="data" />
@@ -30,6 +33,7 @@
     v-if="data"
     :weather="data"
   />
+
 </template>
 
 <style scoped src="./styles/App.css">

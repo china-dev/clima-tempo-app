@@ -32,6 +32,7 @@ export function useApi<T> () {
         } catch (error) {
             errorRequest.value = error;
         } finally {
+            await new Promise(resolve => setTimeout(resolve, 2000));
             loading.value = false;
         }
     }
