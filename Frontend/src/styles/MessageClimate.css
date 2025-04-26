@@ -1,0 +1,27 @@
+.boxWrapper.messageCard {
+    background: #0178FF;
+    background: linear-gradient(90deg, rgba(1, 120, 255, 0.50) 0%, rgba(28, 145, 255, 0.50) 50%, rgba(50, 164, 255, 0.50) 100%);
+    max-width: 200px;
+    position: absolute;
+    z-index: 1;
+    right: 30px;
+    bottom: 50px;
+}
+.boxWrapper.messageCard .box{
+    background: #0178FF;
+    background: linear-gradient(90deg, rgba(1, 120, 255, 1) 0%, rgba(28, 145, 255, 1) 50%, rgba(50, 164, 255, 1) 100%);
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boxWrapper.messageCard:hover {
+    transform: translateY(-5px);
+}
+.messageText {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+ }
+  

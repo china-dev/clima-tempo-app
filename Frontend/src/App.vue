@@ -2,6 +2,7 @@
   import ConditionCity from './components/ConditionCity.vue';
   import HumidityCity from './components/HumidityCity.vue';
   import InfoCity from './components/InfoCity.vue';
+  import MessageClimate from './components/MessageClimate.vue';
   import { onMounted } from "vue";
   import { useApi } from "./composables/UseApi";
 
@@ -15,6 +16,7 @@
 
 <template>
   <InfoCity v-if="data" :weather="data" />
+  <MessageClimate v-if="data" :weather="data" />
   <ConditionCity v-if="data" :weather="data" />
   <HumidityCity 
     class="humidity"
