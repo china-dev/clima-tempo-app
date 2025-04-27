@@ -8,3 +8,18 @@
   align-items: center;
   margin-top: 50px;
 }
+main {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+@media (max-width: 1250px) {
+  .flexAppWrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .flexAppWrapperRow {
+    flex-direction: column;
+  }
+}

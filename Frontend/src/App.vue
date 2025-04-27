@@ -24,26 +24,28 @@
 </script>
 
 <template>
-  <LoadingApp v-if="showLoading"/>
+  <main>
+    <LoadingApp v-if="showLoading"/>
+    
+    <Searchcity @search="handleCitySearch" />
+    <InfoCity v-if="data" :weather="data" />
+    <MessageClimate v-if="data" :weather="data" />
   
-  <Searchcity @search="handleCitySearch" />
-  <InfoCity v-if="data" :weather="data" />
-  <MessageClimate v-if="data" :weather="data" />
-
-  <div class="flexAppWrapper">
-    <div>
-      <ConditionCity v-if="data" :weather="data" />
-      <div class="flexAppWrapperRow">
-        <HumidityCity 
-          class="humidity"
-          v-if="data"
-          :weather="data"
-        />
-        <IconsClimate />
+    <div class="flexAppWrapper">
+      <div>
+        <ConditionCity v-if="data" :weather="data" />
+        <div class="flexAppWrapperRow">
+          <HumidityCity 
+            class="humidity"
+            v-if="data"
+            :weather="data"
+          />
+          <IconsClimate />
+        </div>
       </div>
+      <DaysCondition class="daysCondition" v-if="data" :weather="data" />
     </div>
-    <DaysCondition class="daysCondition" v-if="data" :weather="data" />
-  </div>
+  </main>
 
 </template>
 

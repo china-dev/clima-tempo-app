@@ -105,3 +105,9 @@ body{
 h1, h2, h3, p, span {
   line-height: 1;
 }
+
+@media (max-width: 1250px) {
+  body {
+    padding-bottom: 100px;
+  }
+}

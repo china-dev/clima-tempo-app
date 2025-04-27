@@ -1,17 +1,28 @@
 .infoCity{
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .infoCityTitle{
-    font-size: 32px;
-    margin-bottom: 10px;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 .infoCityRegion {
-    font-size: 22px;
-    color: gray;
+  font-size: 22px;
+  color: gray;
 }
 .infoCityCalendarHour {
     font-size: 22px;
 }
+
+@media (max-width: 1250px) {
+    .infoCity {
+      flex-direction: column;
+      margin-top: 20px;
+    }
+    .infoCityCalendarHour{
+      margin-top: 10px;
+    }
+  }
+  
