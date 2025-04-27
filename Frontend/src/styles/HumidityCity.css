@@ -27,6 +27,7 @@
   border-radius: 20px;
   display: flex;
   align-items: flex-end;
+  margin-left: 10px;
 }
 .boxGraficPercent{
   width: 30px;

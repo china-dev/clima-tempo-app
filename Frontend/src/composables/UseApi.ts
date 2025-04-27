@@ -5,8 +5,8 @@ export interface ForecastItem {
   date: string;
   condition: string;
   icon: string;
-  temp_min_c: number;
-  temp_max_c: number;
+  max_temp_c: number;
+  min_temp_c: number;
 }
 
 export interface WeatherData {

@@ -18,11 +18,14 @@ const { weather } = defineProps<{
              <p class="boxHumidityHeadText">Humidade do ar</p>
           </div>
           <div class="boxHumidityPercent">
-            {{  weather.humidity }} %
+            {{ weather.humidity }} %
           </div>
         </div>
         <div class="boxGrafic">
-          <div class="boxGraficPercent">
+          <div
+            class="boxGraficPercent"
+             :style="{height: `${weather.humidity}%`}"
+          >
             <div class="boxGraficPercentIcon"></div>
           </div>
         </div>
