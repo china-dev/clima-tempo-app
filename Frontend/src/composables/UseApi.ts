@@ -37,6 +37,7 @@ export function useApi<T> () {
       try {
           const response = await axios.get(`${BASE_URL}${endpoint}`);
           data.value = response.data;
+          errorRequest.value = null;
       } catch (error) {
           errorRequest.value = error;
       } finally {

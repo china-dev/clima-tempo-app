@@ -30,6 +30,7 @@
     <Searchcity @search="handleCitySearch" />
     <InfoCity v-if="data" :weather="data" />
     <MessageClimate
+       v-if="data || errorRequest"
       :weather="data"
       :errorRequest="errorRequest"
     />
@@ -39,8 +40,8 @@
         <ConditionCity v-if="data" :weather="data" />
         <div class="flexAppWrapperRow">
           <HumidityCity 
-            class="humidity"
             v-if="data"
+            class="humidity"
             :weather="data"
           />
           <IconsClimate />
