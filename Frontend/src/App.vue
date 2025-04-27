@@ -6,7 +6,8 @@
   import LoadingApp from './components/LoadingApp.vue';
   import Searchcity from "./components/SearchCity.vue";
   import DaysCondition from "./components/DaysCondition.vue";
-
+  import IconsClimate from "./components/IconsClimate.vue";
+  
   import { onMounted } from "vue";
   import { useCitySearch } from "./composables/UseCitySearch.ts";
 
@@ -28,13 +29,21 @@
   <Searchcity @search="handleCitySearch" />
   <InfoCity v-if="data" :weather="data" />
   <MessageClimate v-if="data" :weather="data" />
-  <ConditionCity v-if="data" :weather="data" />
-  <DaysCondition class="daysCondition" v-if="data" :weather="data" />
-  <HumidityCity 
-    class="humidity"
-    v-if="data"
-    :weather="data"
-  />
+
+  <div class="flexAppWrapper">
+    <div>
+      <ConditionCity v-if="data" :weather="data" />
+      <div class="flexAppWrapperRow">
+        <HumidityCity 
+          class="humidity"
+          v-if="data"
+          :weather="data"
+        />
+        <IconsClimate />
+      </div>
+    </div>
+    <DaysCondition class="daysCondition" v-if="data" :weather="data" />
+  </div>
 
 </template>
 

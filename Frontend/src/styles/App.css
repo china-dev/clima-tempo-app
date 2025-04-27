@@ -1,0 +1,10 @@
+.flexAppWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.flexAppWrapperRow {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}

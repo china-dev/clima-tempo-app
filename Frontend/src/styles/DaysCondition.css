@@ -1,9 +1,12 @@
 .boxWrapper.daysCondition {
   max-width: 350px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(1, 120, 255, 1) 0%, rgba(28, 145, 255, 1) 50%, rgba(50, 164, 255, 1) 100%);
 }
 .boxWrapper.daysCondition .box{
   flex-direction: column;
   height: unset;
+  background: linear-gradient(90deg, rgba(1, 120, 255, 1) 0%, rgba(28, 145, 255, 1) 50%, rgba(50, 164, 255, 1) 100%);
 }
 .boxDays {
   display: flex;
@@ -25,7 +28,7 @@
 }
 .dayTempMin,
 .dayTitle {
-  color: gray;
+  color: #fff;
 }
 .dayTempMin {
   font-size: 12px;
