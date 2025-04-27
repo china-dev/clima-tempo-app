@@ -5,13 +5,22 @@
 
   const props  = defineProps<{
     weather: WeatherData;
+    errorRequest: any;
   }>();
 
-  const { message } = useMessageClimate(toRef(props, 'weather'));
+  const { message } = useMessageClimate(
+    toRef(props, 'weather'),
+    toRef(props, "errorRequest")
+  );
 </script>
 
 <template>
-  <div class="boxWrapper messageCard">
+  <div
+   v-if="message"
+   :class="[
+    'boxWrapper', 'messageCard', { 'messageError': !!props.errorRequest }
+    ]"
+  >
     <div class="box">
       <section class="messageCard">
           <p class="messageText">

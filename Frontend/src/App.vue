@@ -11,7 +11,7 @@
   import { onMounted } from "vue";
   import { useCitySearch } from "./composables/UseCitySearch.ts";
 
-  const { data, showLoading, initialLoad, searchCity } = useCitySearch();
+  const { data, showLoading, initialLoad, searchCity, errorRequest } = useCitySearch();
 
   onMounted(() => {
     initialLoad();
@@ -20,7 +20,7 @@
   function handleCitySearch(cityName: string) {
     searchCity(cityName);
   }
-  
+
 </script>
 
 <template>
@@ -29,7 +29,10 @@
     
     <Searchcity @search="handleCitySearch" />
     <InfoCity v-if="data" :weather="data" />
-    <MessageClimate v-if="data" :weather="data" />
+    <MessageClimate
+      :weather="data"
+      :errorRequest="errorRequest"
+    />
   
     <div class="flexAppWrapper">
       <div>
