@@ -6,54 +6,53 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class WeatherController {
-    public function __construct(private WeatherService $service) {}
+  public function __construct(private WeatherService $service) {}
 
-    public function handle(Request $request, Response $response): Response
-    {
-        $queryParams = $request->getQueryParams();
-        $city = $queryParams['city'] ?? null;
+  public function handle(Request $request, Response $response): Response {
+    $queryParams = $request->getQueryParams();
+    $city = $queryParams['city'] ?? null;
 
-        if (!$city) {
-            $response->getBody()->write(json_encode(['error' => 'Parâmetro "city" é obrigatório']));
-            return $response->withStatus(400)->withHeader('Content-Type', 'application/json');
-        }
-
-        try {
-            $weather = $this->service->getWeather($city);
-            // echo "<pre>"; print_r($weather); echo "</pre>"; exit;
-            $response->getBody()->write(json_encode([
-                'city' => $weather->city,
-                'region' => $weather->region,
-                'country' => $weather->country,
-                'localtime' => $weather->local_time,
-                'condition' => $weather->condition,
-                'icon' => $weather->icon,
-                'temp_c' => $weather->temp_c,
-                'feelslike_c' => $weather->feelslike_c,
-                'temp_f' => $weather->temp_f,
-                'feelslike_f' => $weather->feelslike_f,
-                'humidity' => $weather->humidity,
-                'forecast' => $weather->forecast,
-            ]));
-    
-            return $response
-                ->withStatus(200)
-                ->withHeader('Content-Type', 'application/json')
-                ->withHeader('Content-Type', 'application/json')
-                ->withHeader('Access-Control-Allow-Origin', '*')
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-                
-        } catch (\Exception $e) {
-            $response->getBody()->write(json_encode(['error' => $e->getMessage()]));
-            return $response
-                ->withStatus(400)
-                ->withHeader('Content-Type', 'application/json')
-                ->withHeader('Access-Control-Allow-Origin', '*')
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-        }
-
-
+    if (!$city) {
+        return $this->errorResponse($response, 'Parâmetro "city" é obrigatório', 400);
     }
+
+    try {
+        $weather = $this->service->getWeather($city);
+        $body = $this->buildResponseBody($weather);
+        return $this->jsonResponse($response, $body);
+    } catch (\Exception $e) {
+        return $this->errorResponse($response, $e->getMessage(), 400);
+    }
+  }
+
+  private function jsonResponse(Response $response, array $body, int $status = 200): Response {
+    $response->getBody()->write(json_encode($body));
+    return $response
+        ->withStatus($status)
+        ->withHeader('Content-Type', 'application/json')
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  }
+
+  private function errorResponse(Response $response, string $message, int $status): Response {
+      return $this->jsonResponse($response, ['error' => $message], $status);
+  }
+
+  private function buildResponseBody($weather): array {
+    return [
+      'city' => $weather->city,
+      'region' => $weather->region,
+      'country' => $weather->country,
+      'localtime' => $weather->local_time,
+      'condition' => $weather->condition,
+      'icon' => $weather->icon,
+      'temp_c' => $weather->temp_c,
+      'feelslike_c' => $weather->feelslike_c,
+      'temp_f' => $weather->temp_f,
+      'feelslike_f' => $weather->feelslike_f,
+      'humidity' => $weather->humidity,
+      'forecast' => $weather->forecast,
+    ];
+  }
 }

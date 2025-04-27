@@ -20,6 +20,7 @@ const { city, handleSearch } = useSearchCity();
         type="text"
         class="searchInput"
         placeholder="Buscar cidade"
+        required
       >
       <button class="searchButton" type="submit">
         <img
